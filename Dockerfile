@@ -10,7 +10,8 @@ COPY mvnw.cmd /app/mvnw.cmd
 # Définir le répertoire de travail pour exécuter les commandes suivantes
 WORKDIR /app
 
-RUN chmod +x mvnw
+# Donner les permissions d'exécution à mvnw
+RUN chmod +x /app/mvnw
 
 # Copier le reste des fichiers de l'application
 COPY . .
