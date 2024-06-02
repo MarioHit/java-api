@@ -3,18 +3,18 @@ FROM ubuntu:latest AS build
 RUN apt-get update && \
     apt-get install -y openjdk-17-jdk maven
 
-# Copier les fichiers Maven Wrapper et leur donner les permissions d'exécution
+# Copier les fichiers Maven Wrapper
 COPY mvnw /app/mvnw
 COPY mvnw.cmd /app/mvnw.cmd
 
-# Définir le répertoire de travail pour exécuter les commandes suivantes
+# Définir le répertoire de travail
 WORKDIR /app
-
-# Donner les permissions d'exécution à mvnw
-RUN chmod +x /app/mvnw
 
 # Copier le reste des fichiers de l'application
 COPY . .
+
+# Donner les permissions d'exécution à mvnw
+RUN chmod +x mvnw
 
 # Construire l'application
 RUN ./mvnw clean package -DskipTests
