@@ -6,13 +6,14 @@ RUN apt-get update && \
 # Copier les fichiers Maven Wrapper et leur donner les permissions d'exécution
 COPY mvnw /app/mvnw
 COPY mvnw.cmd /app/mvnw.cmd
-RUN chmod +x /app/mvnw
-
-# Copier le reste des fichiers de l'application
-COPY . /app
 
 # Définir le répertoire de travail pour exécuter les commandes suivantes
 WORKDIR /app
+
+RUN chmod +x mvnw
+
+# Copier le reste des fichiers de l'application
+COPY . .
 
 # Construire l'application
 RUN ./mvnw clean package -DskipTests
