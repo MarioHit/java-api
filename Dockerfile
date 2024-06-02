@@ -4,6 +4,7 @@ RUN apt-get update && \
     apt-get install -y openjdk-17-jdk maven
 
 # Copier les fichiers Maven Wrapper
+COPY .mvn /app/.mvn
 COPY mvnw /app/mvnw
 COPY mvnw.cmd /app/mvnw.cmd
 
