@@ -17,8 +17,14 @@ public class DemoApplication {
 
 @RestController
 class DemoController {
-	@GetMapping("hello")
+	@GetMapping("/hello")
 	public String hello(){
 		return "Hello biath";
+	}
+
+
+	@GetMapping("/")
+	public String ACCUEIL(){
+		return "Page d'accueil hahah";
 	}
 }
