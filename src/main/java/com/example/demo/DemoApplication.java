@@ -27,4 +27,9 @@ class DemoController {
 	public String ACCUEIL(){
 		return "Page d'accueil hahah";
 	}
+
+	@GetMapping("/bye")
+	public String bye(){
+		return "Bayi bayi bayi";
+	}
 }
